@@ -1,6 +1,7 @@
-# Create T3 App
+# T4 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+It has been updated to also include `R3F`.
 
 ## What's next? How do I make an app with this?
 
@@ -13,6 +14,7 @@ If you are not familiar with the different technologies used in this project, pl
 - [Prisma](https://prisma.io)
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
+- [r3f](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
 
 ## Learn More
 

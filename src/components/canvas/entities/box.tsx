@@ -8,7 +8,7 @@ function BoxRotator(props: ThreeElements['mesh']) {
   const [active, setActive] = useState(false)
   const direction = Math.random() > 0.5 ? -1 : 1
 
-  useFrame((state, delta) => (mesh.current.rotation.x += direction * delta))
+  // useFrame((state, delta) => (mesh.current.rotation.x += direction * delta))
   useEffect(() => {
     console.log(Boolean(mesh.current))
   }, [])
