@@ -44,7 +44,6 @@ function Ball() {
       impulse.setY(0);
       impulse.normalize().setLength(impulseStrength);
       console.log("impulse", impulse);
-      console.log(body)
 
       body.applyImpulse(impulse);
     }
@@ -54,7 +53,6 @@ function Ball() {
       torque.setY(0)
       torque.normalize().setLength(torqueStrength)
       console.log("torque", torque)
-      console.log(body)
 
       body.applyTorqueImpulse(torque)
     }
