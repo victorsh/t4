@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -7,8 +8,11 @@ import RapierScene from "~/components/canvas/rapier-scene";
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
-
+  const [sceneSelection, setSceneSelection] = useState(0)
+  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const switchScene = (selection: number) => {
+    setSceneSelection(selection)
+  }
   return (
     <>
       <Head>
@@ -16,10 +20,16 @@ const Home: NextPage = () => {
         <meta name="description" content="t3 + Three" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-        {/* <Scene /> */}
-        <RapierScene />
+      <main className="flex min-h-screen flex-col items-center">
+        <div className='text-white z-10'>
+          <button onClick={e => switchScene(0)} className='m-2'>Basic</button>
+          <button onClick={e => switchScene(1)} className='m-2'>Physics</button>
+        </div>
       </main>
+      {sceneSelection === 0 ?
+        <Scene /> :
+        <RapierScene />
+      }
     </>
   );
 };

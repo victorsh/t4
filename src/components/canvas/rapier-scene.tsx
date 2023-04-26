@@ -42,7 +42,7 @@ const RapierScene = ({ children }: RapierSceneProps) => {
           <Environment background>
             <mesh scale={100}>
               <sphereGeometry args={[1, 64, 64]} />
-              <meshBasicMaterial color={'blue'} side={THREE.BackSide} />
+              <meshBasicMaterial color={'#333377'} side={THREE.BackSide} />
             </mesh>
           </Environment>
           <spotLight

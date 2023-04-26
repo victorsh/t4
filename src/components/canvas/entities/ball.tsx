@@ -22,6 +22,7 @@ function Ball() {
     if (forward) {
       impulse.z = -1;
       torque.x = -1;
+      console.log('forward')
     }
     if (backward) {
       impulse.z = 1;
@@ -42,18 +43,20 @@ function Ball() {
       impulse.applyMatrix4(camera.matrixWorld).sub(camera.position);
       impulse.setY(0);
       impulse.normalize().setLength(impulseStrength);
-      // console.log("impulse", impulse);
+      console.log("impulse", impulse);
+      console.log(body)
 
       body.applyImpulse(impulse);
     }
 
     if (body && torque.length() > 0) {
-      torque.applyMatrix4(camera.matrixWorld).sub(camera.position);
-      torque.setY(0);
-      torque.normalize().setLength(torqueStrength);
-      // console.log("torque", torque);
+      torque.applyMatrix4(camera.matrixWorld).sub(camera.position)
+      torque.setY(0)
+      torque.normalize().setLength(torqueStrength)
+      console.log("torque", torque)
+      console.log(body)
 
-      body.applyTorqueImpulse(torque);
+      body.applyTorqueImpulse(torque)
     }
   })
 
@@ -63,15 +66,15 @@ function Ball() {
     const { current: body } = bodyRef;
 
     if (body) {
-      const origin = body.translation();
+      const origin = body.translation()
 
       origin.y -= 1 + 0.05;
-      const direction = { x: 0, y: -1, z: 0 };
-      const ray = new rapier.Ray(origin, direction);
-      const hit = world.raw().castRay(ray, 10, true);
+      const direction = { x: 0, y: -1, z: 0 }
+      const ray = new rapier.Ray(origin, direction)
+      const hit = world.raw().castRay(ray, 10, true)
 
       if (hit && hit.toi < 0.15) {
-        body.applyImpulse({ x: 0, y: 90, z: 0 });
+        body.applyImpulse({ x: 0, y: 90, z: 0 })
       }
     }
   }, [rapier.Ray, world]);
@@ -80,7 +83,7 @@ function Ball() {
     const unsubscribeJump = subscribeKeys(
       (state: any) => state.jump,
       (value) => {
-        if (value) jump();
+        if (value) jump()
       }
     );
 

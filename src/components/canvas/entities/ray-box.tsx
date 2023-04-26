@@ -28,7 +28,7 @@ const RayBox = () => {
     }
     
     const intersections = raycast()
-    console.log(intersections)
+    // console.log(intersections)
   })
 
   return (
