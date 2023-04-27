@@ -40,6 +40,7 @@ function Ball() {
     const { current: body } = bodyRef;
 
     if (body && impulse.length() > 0) {
+      body.wakeUp()
       impulse.applyMatrix4(camera.matrixWorld).sub(camera.position);
       impulse.setY(0);
       impulse.normalize().setLength(impulseStrength);
@@ -49,6 +50,7 @@ function Ball() {
     }
 
     if (body && torque.length() > 0) {
+      body.wakeUp()
       torque.applyMatrix4(camera.matrixWorld).sub(camera.position)
       torque.setY(0)
       torque.normalize().setLength(torqueStrength)

@@ -6,7 +6,7 @@ import RayBox from './entities/ray-box'
 
 const Scene = () => {
   return (
-    <Canvas style={{position: 'fixed', top: '0px', left: '0px', width: '100vw', height: '100vh', zIndex: 1}}>
+    <Canvas style={{position: 'fixed', top: '0px', left: '0px', width: '100vw', height: '100vh', zIndex: 1, background: '#222222'}}>
       <ambientLight intensity={0.9} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
       <pointLight position={[-10, -10, -10]} />
