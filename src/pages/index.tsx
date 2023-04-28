@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
+import Footer from '~/components/layouts/footer'
 
 import Scene from '~/components/canvas/scene'
 import RapierScene from "~/components/canvas/rapier-scene";
@@ -25,6 +25,7 @@ const Home: NextPage = () => {
           <button onClick={e => switchScene(0)} className='m-2'>Basic</button>
           <button onClick={e => switchScene(1)} className='m-2'>Physics</button>
         </div>
+        <Footer />
       </main>
       {sceneSelection === 0 ?
         <Scene /> :

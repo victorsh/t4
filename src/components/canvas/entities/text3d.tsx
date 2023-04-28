@@ -27,7 +27,7 @@ export default function Text3D(props: any) {
   return (
     <mesh ref={ref} {...props} receiveShadow castShadow>
       <textGeometry args={[props.text, {font, size: 1, height: 1}]} />
-      <meshPhongMaterial attach='material' color={props.color} />
+      <meshStandardMaterial attach='material' color={props.color} />
     </mesh>
   )
 }

@@ -10,7 +10,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@prisma/client": "^4.11.0",
+    "@react-spring/web": "^9.7.2",
     "@react-three/drei": "^9.66.0",
     "@react-three/fiber": "^8.9.1",
     "@react-three/rapier": "^0.15.0",
@@ -20,6 +26,7 @@
     "@trpc/react-query": "^10.18.0",
     "@trpc/server": "^10.18.0",
     "@types/three": "^0.150.2",
+    "font-awesome": "^4.7.0",
     "next": "^13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
