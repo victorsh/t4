@@ -5,6 +5,7 @@ import {
   OrbitControls,
   Environment,
   PerspectiveCamera,
+  PerformanceMonitor
 } from "@react-three/drei"
 import { Physics, RigidBody } from "@react-three/rapier";
 import Ball from '~/components/canvas/entities/ball'

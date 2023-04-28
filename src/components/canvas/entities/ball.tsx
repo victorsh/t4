@@ -28,21 +28,20 @@ function Ball() {
     const torqueStrength = 30 * delta
 
     if (forward) {
-      impulse.z = -1;
-      torque.x = -1;
-      console.log('forward')
+      impulse.z = -1
+      torque.x = -1
     }
     if (backward) {
-      impulse.z = 1;
-      torque.x = 1;
+      impulse.z = 1
+      torque.x = 1
     }
     if (rightward) {
-      impulse.x = 1;
-      torque.z = -1;
+      impulse.x = 1
+      torque.z = -1
     }
     if (leftward) {
-      impulse.x = -1;
-      torque.z = 1;
+      impulse.x = -1
+      torque.z = 1
     }
 
     const { current: body } = bodyRef;
