@@ -1,7 +1,9 @@
+import { type NextPage } from 'next';
+import Head from 'next/head';
 import { useAppSelector, useAppDispatch } from '~/store/hooks'
 import { selectNotes, removeNote } from '~/store/note-slice'
 
-const SampleRedux = (): JSX.Element => {
+const SampleRedux: NextPage = (): JSX.Element => {
   const notes = useAppSelector(selectNotes)
   const dispatch = useAppDispatch()
 
@@ -19,6 +21,11 @@ const SampleRedux = (): JSX.Element => {
 
   return (
     <div>
+      <Head>
+        <title>T4 App</title>
+        <meta name="description" content="t3 + Three" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <main>hello</main>
       {renderNotes}
     </div>
