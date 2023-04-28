@@ -1,8 +1,16 @@
-import { useCallback, useEffect, useRef } from 'react'
+/* eslint-disable */
+import { useCallback, useEffect, useRef, RefObject, MutableRefObject } from 'react'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useRapier, RigidBody } from '@react-three/rapier'
 import { useKeyboardControls } from '@react-three/drei'
+
+type CustomRigidBody = typeof RigidBody & {
+  wakeUp: () => void;
+  applyImpulse: (impulse: THREE.Vector3 | { x:number, y:number, z:number }) => void;
+  applyTorqueImpulse: (torque: THREE.Vector3) => void;
+  translation: () => {x: number, y:number, z:number};
+}
 
 function Ball() {
   const { camera } = useThree()
@@ -41,12 +49,12 @@ function Ball() {
 
     if (body && impulse.length() > 0) {
       body.wakeUp()
-      impulse.applyMatrix4(camera.matrixWorld).sub(camera.position);
-      impulse.setY(0);
-      impulse.normalize().setLength(impulseStrength);
-      console.log("impulse", impulse);
+      impulse.applyMatrix4(camera.matrixWorld).sub(camera.position)
+      impulse.setY(0)
+      impulse.normalize().setLength(impulseStrength)
+      // console.log("impulse", impulse)
 
-      body.applyImpulse(impulse);
+      body.applyImpulse(impulse)
     }
 
     if (body && torque.length() > 0) {
@@ -54,21 +62,19 @@ function Ball() {
       torque.applyMatrix4(camera.matrixWorld).sub(camera.position)
       torque.setY(0)
       torque.normalize().setLength(torqueStrength)
-      console.log("torque", torque)
+      // console.log("torque", torque)
 
       body.applyTorqueImpulse(torque)
     }
   })
 
   const jump = useCallback(() => {
-    // console.log("jump");
-
-    const { current: body } = bodyRef;
+    const { current: body } = bodyRef
 
     if (body) {
       const origin = body.translation()
 
-      origin.y -= 1 + 0.05;
+      origin.y -= 1 + 0.05
       const direction = { x: 0, y: -1, z: 0 }
       const ray = new rapier.Ray(origin, direction)
       const hit = world.raw().castRay(ray, 10, true)
@@ -77,20 +83,16 @@ function Ball() {
         body.applyImpulse({ x: 0, y: 90, z: 0 })
       }
     }
-  }, [rapier.Ray, world]);
+  }, [rapier.Ray, world])
 
   useEffect(() => {
     const unsubscribeJump = subscribeKeys(
       (state: any) => state.jump,
-      (value) => {
-        if (value) jump()
-      }
+      (value) => { if (value) jump() }
     );
 
-    return () => {
-      unsubscribeJump();
-    };
-  }, [subscribeKeys, jump]);
+    return () => { unsubscribeJump() }
+  }, [subscribeKeys, jump])
 
   return (
     <RigidBody

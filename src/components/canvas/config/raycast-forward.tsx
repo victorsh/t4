@@ -1,10 +1,10 @@
 //https://codesandbox.io/s/tpl-r3f-9cplyk
-import { useRef, useMemo } from 'react'
-import { useFrame, useThree } from '@react-three/fiber'
-import { Raycaster, Vector3 } from 'three'
+import { useMemo } from 'react'
+import { useThree } from '@react-three/fiber'
+import { Raycaster, Vector3, Object3D } from 'three'
+import { RefObject } from 'react'
 
-
-const useForwardRaycast = (obj: any) => {
+const useForwardRaycast = (obj: RefObject<Object3D>) => {
   const raycaster = useMemo(() => new Raycaster(), [])
   const pos = useMemo(() => new Vector3(), [])
   const dir = useMemo(() => new Vector3(), [])

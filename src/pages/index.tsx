@@ -9,7 +9,7 @@ import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
   const [sceneSelection, setSceneSelection] = useState(0)
-  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const switchScene = (selection: number) => {
     setSceneSelection(selection)
   }
@@ -22,8 +22,8 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex min-h-screen flex-col items-center">
         <div className='text-white z-10'>
-          <button onClick={e => switchScene(0)} className='m-2'>Basic</button>
-          <button onClick={e => switchScene(1)} className='m-2'>Physics</button>
+          <button onClick={() => switchScene(0)} className='m-2'>Basic</button>
+          <button onClick={() => switchScene(1)} className='m-2'>Physics</button>
         </div>
         <Footer />
       </main>

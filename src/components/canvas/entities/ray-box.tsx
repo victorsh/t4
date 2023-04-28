@@ -33,11 +33,11 @@ const RayBox = () => {
 
   return (
     <>
-      <mesh ref={ref}>
+      <mesh ref={ref} position={[1.5, 0, 0]}>
         <boxGeometry />
-        <meshStandardMaterial color='orage' />
+        <meshStandardMaterial color='orange' />
       </mesh>
-      <mesh position={[1, 0, 0]}>
+      <mesh position={[0.5, 0, 0]}>
         <boxGeometry />
         <meshStandardMaterial color='hotpink' />
       </mesh>

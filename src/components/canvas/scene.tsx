@@ -14,7 +14,7 @@ const Scene = () => {
       <BoxRotator position={[1.2, 0, 0]} />
       <BoxRotator position={[0, -1.2, 0]} />
       <BoxRotator position={[0, 1.2, 0]} /> */}
-      <Text3D text='T4' color={'#aaaaff'} position={[-1, 0, 1]} scale={[1, 1, 0.5]}/>
+      <Text3D text='T4' color={'#aaaaff'} position={[0, 0, 1]} scale={[1, 1, 0.5]}/>
       <RayBox />
       <Controls />
     </Canvas>

@@ -9,14 +9,13 @@ import {
 import { Physics, RigidBody } from "@react-three/rapier";
 import Ball from '~/components/canvas/entities/ball'
 import * as THREE from 'three'
-import type { Camera } from 'three'
 
 interface RapierSceneProps {
   children?: ReactNode
 }
 
 const RapierScene = ({ children }: RapierSceneProps) => {
-  const cameraRef = useRef<Camera>();
+  const cameraRef = useRef<THREE.Camera>();
   return (
     <KeyboardControls
       map={[
