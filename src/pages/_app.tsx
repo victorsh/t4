@@ -1,6 +1,7 @@
-import { type AppType } from "next/app";
-import { api } from "~/utils/api";
-import "~/styles/globals.css";
+/* tslint:disable */
+import { type AppType } from "next/app"
+import { api } from "~/utils/api"
+import "~/styles/globals.css"
 
 const { library, config } = require('@fortawesome/fontawesome-svg-core')
 import { faHeart, faCopyright, fas, faEnvelope, faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons'
@@ -13,6 +14,6 @@ config.autoAddCss = false
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
-};
+}
 
-export default api.withTRPC(MyApp);
+export default api.withTRPC(MyApp)
