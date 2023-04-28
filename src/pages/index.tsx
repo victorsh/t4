@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { type NextPage } from "next";
 import Head from "next/head";
+import Links from '~/components/layouts/links'
 import Footer from '~/components/layouts/footer'
 
 import Scene from '~/components/canvas/scene'
@@ -21,10 +22,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center">
-        <div className='text-white z-10'>
-          <button onClick={() => switchScene(0)} className='m-2'>Basic</button>
-          <button onClick={() => switchScene(1)} className='m-2'>Physics</button>
-        </div>
+        <Links switchScene={switchScene}/>
         <Footer />
       </main>
       {sceneSelection === 0 ?
